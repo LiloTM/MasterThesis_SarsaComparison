@@ -41,11 +41,11 @@ public class S_EvaluationTool : MonoBehaviour
                         highestReward = sarsa.needsList[a].qTable[i, j];
                         bestAction = j;
                     }
-                    if (sarsa.needsList[a].qTable[i, j] == 0.1) unexploredActionCounter++;
+                    if (sarsa.needsList[a].qTable[i, j] == 0.1f) unexploredActionCounter++;
                 }
                 currentText.GetComponent<TMPro.TMP_Text>().text = bestAction.ToString();
             }
         }
-        Debug.Log($"{unexploredActionCounter}/{actionAmount*stateAmount} actions have not been explored.");
+        Debug.Log($"{unexploredActionCounter}/{actionAmount*stateAmount * sarsa.needsList.Length} actions have not been explored.");
     }
 }
