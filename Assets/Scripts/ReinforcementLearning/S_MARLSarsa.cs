@@ -28,7 +28,7 @@ public class S_MARLSarsa : S_Sarsa
         // learn distance to highest need and return it as a reward
         float distanceToNeed = GetDistanceToHighestNeed(NPC);
         // should the action be idle, double the distMultiplier in the reward to gain a lesser reward
-        if (action == 4) return 0.00001f; 
+        if (action == 4) return runIntoWallReward; 
         return distanceReward - (distanceToNeed * distanceMultiplier);
     }
     protected override int Exploit(int state, float[,] curQTable, S_NPC npc)
